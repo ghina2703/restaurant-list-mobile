@@ -58,11 +58,11 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 - Use Cases merupakan logika bisnis yang tidak bergantung pada framework atau teknologi tertentu.
 - Dalam Flutter, Use Cases dapat diimplementasikan sebagai kelas-kelas Dart yang mengandung operasi bisnis inti.
 
-`Interface Adapters:`
+`3. Interface Adapters:`
 - Interface Adapters menghubungkan Use Cases dengan Frameworks & Drivers.
 - Dalam konteks Flutter, Interface Adapters dapat berupa presenters dan controllers yang bertanggung jawab untuk mengonversi data dari Use Cases menjadi sesuatu yang dapat ditampilkan di user interface (UI).
 
-`Frameworks & Drivers:`
+`4. Frameworks & Drivers:`
 - Lapisan ini berisi implementasi teknis dan third party software, seperti GUI, database, atau API eksternal.
 - Dalam Flutter, Frameworks & Drivers melibatkan kode Flutter dan paket-paket pub.
 
@@ -82,7 +82,7 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 **2. Mengarahkan Pengguna ke Halaman Form Tambah Item Baru:**
    - Menerapkan fungsi `navigateToRestaurantFormPage(BuildContext context)` yang menggunakan `Navigator.push` untuk mengarahkan pengguna dari halaman utama (`MyHomePage`) ke halaman form tambah item baru (`RestaurantFormPage`).
 
-***3. Menampilkan Data dalam Pop-up**
+**3. Menampilkan Data dalam Pop-up**
    - Setelah tombol "Save" ditekan, data dimasukkan ke dalam `itemRepository.items` dan kemudian ditampilkan dalam sebuah AlertDialog menggunakan `showDialog`.
 
 **4. Drawer pada Aplikasi:**
