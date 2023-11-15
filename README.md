@@ -4,29 +4,29 @@ Kelas: PBP-B\
 Kode Asdos: ZYN**
 
 ## TUGAS 8
-*Jelaskan perbedaan `Navigator.push` dan `Navigator.pushReplacement`*
+**Jelaskan perbedaan `Navigator.push` dan `Navigator.pushReplacement`:**
 
-- `Navigator.push () :` Metode push digunakan untuk menambahkan rute lain ke atas tumpukan screen (stack) saat ini. Halaman baru ditampilkan di atas halaman sebelumnya.
+`- Navigator.push () :` Metode push digunakan untuk menambahkan rute lain ke atas tumpukan screen (stack) saat ini. Halaman baru ditampilkan di atas halaman sebelumnya.\
 Contoh penggunaan: Digunakan ketika menambahkan halaman baru ke navigation stack, seperti saat mengarahkan user dari satu layar ke layar lain.
 
-- `Navigator.pushReplacement() :` Metode pushReplacement digunakan untuk menimpa/mengganti rute yang sekarang ke rute lain. Halaman baru ditampilkan dengan menggantikan halaman sebelumnya.
-- Contoh penggunaan: Digunakan ketika menggantikan halaman saat ini dengan halaman baru dan menghapus halaman sebelumnya dari navigation stack, digunakan ketika tidak ingin user dapat kembali ke halaman sebelumnya.
+`- Navigator.pushReplacement() :` Metode pushReplacement digunakan untuk menimpa/mengganti rute yang sekarang ke rute lain. Halaman baru ditampilkan dengan menggantikan halaman sebelumnya.\
+Contoh penggunaan: Digunakan ketika menggantikan halaman saat ini dengan halaman baru dan menghapus halaman sebelumnya dari navigation stack, digunakan ketika tidak ingin user dapat kembali ke halaman sebelumnya.
 
-*Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya*
+**Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya:**
 
-`- Container:` Digunakan untuk mengelompokkan dan mengatur widget lain dengan memberikan batasan atau padding.
+`- Container:` Digunakan untuk mengelompokkan dan mengatur widget lain dengan memberikan batasan atau padding.\
 Contoh penggunaan: Mengelilingi widget lain untuk memberikan margin atau layout.
 
-`- Row dan Column:` Digunakan untuk menempatkan widget dalam baris atau kolom.
+`- Row dan Column:` Digunakan untuk menempatkan widget dalam baris atau kolom.\
 Contoh penggunaan: Mengatur child widget secara vertikal atau horizontal.
 
-`- ListView:` Digunakan untuk menampilkan daftar widget dalam scroll list.
+`- ListView:` Digunakan untuk menampilkan daftar widget dalam scroll list.\
 Contoh Penggunaan: Menampilkan daftar item yang dapat di-scroll.
 
-`- Stack:` Digunakan untuk menempatkan widget di atas satu sama lain.
+`- Stack:` Digunakan untuk menempatkan widget di atas satu sama lain.\
 Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 
-*Elemen Input Form yang Digunakan:*
+**Elemen Input Form yang Digunakan:**
 
 **1. TextFormField untuk Nama Item (`_name`):**
    - Digunakan untuk memasukkan nama item atau produk.
@@ -35,20 +35,20 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 
 **2. TextFormField untuk Amount (`_amount`):**
    - Digunakan untuk memasukkan jumlah atau amount dari item.
-    - Tipe data yang digunakan yaitu `integer`
+   - Tipe data yang digunakan yaitu `integer`
    - Kembali menggunakan TextFormField karena ini cocok untuk memasukkan data numerik dan dapat memberikan validasi serta memudahkan penggunaan keyboard numerik.
 
 **3. TextFormField untuk Price (`_price`):**
    - Digunakan untuk memasukkan harga atau price dari item.
-    - Tipe data yang digunakan yaitu `integer`
+   - Tipe data yang digunakan yaitu `integer`
    - Seperti sebelumnya, menggunakan TextFormField karena harga umumnya berupa nilai numerik dan elemen ini mendukung validasi dan input numerik.
 
 **4. TextFormField untuk Description (`_description`):**
    - Digunakan untuk memasukkan deskripsi atau keterangan tambahan dari item.
-    - Tipe data yang digunakan yaitu `string`
+   - Tipe data yang digunakan yaitu `string`
    - Sekali lagi, TextFormField dipilih karena dapat menangani input teks lebih lanjut dan memberikan area input yang lebih luas untuk deskripsi yang mungkin lebih panjang.
 
-*Penerapan Clean Architecture pada Flutter*
+**Penerapan Clean Architecture pada Flutter:**
 
 `1. Entities:`
 - Entities adalah representasi dari objek bisnis atau aturan bisnis.
@@ -66,9 +66,9 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 - Lapisan ini berisi implementasi teknis dan third party software, seperti GUI, database, atau API eksternal.
 - Dalam Flutter, Frameworks & Drivers melibatkan kode Flutter dan paket-paket pub.
 
-*Implementasi Step-by-Step:*
+**Implementasi Step-by-Step:**
 
-*1. Halaman Formulir Tambah Item Baru (`restaurantlist_form.dart`):*
+**1. Halaman Formulir Tambah Item Baru (`restaurantlist_form.dart`):**
 
 *a. Memakai Minimal Tiga Elemen Input:*
    - Dalam class `_RestaurantFormPageState`, telah dibuat tiga elemen input yaitu `_name`, `_amount`, `_price` dan `_description` menggunakan TextFormField dengan tipe data yang sudah disesuaikan masing-masing.
@@ -79,20 +79,20 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 *c. Validasi Setiap Elemen Input:*
    - Setiap elemen input divalidasi menggunakan properti `validator` pada masing-masing TextFormField.
 
-*2. Mengarahkan Pengguna ke Halaman Form Tambah Item Baru:*
+**2. Mengarahkan Pengguna ke Halaman Form Tambah Item Baru:**
    - Menerapkan fungsi `navigateToRestaurantFormPage(BuildContext context)` yang menggunakan `Navigator.push` untuk mengarahkan pengguna dari halaman utama (`MyHomePage`) ke halaman form tambah item baru (`RestaurantFormPage`).
 
-*3. Menampilkan Data dalam Pop-up:*
+***3. Menampilkan Data dalam Pop-up**
    - Setelah tombol "Save" ditekan, data dimasukkan ke dalam `itemRepository.items` dan kemudian ditampilkan dalam sebuah AlertDialog menggunakan `showDialog`.
 
-*4. Drawer pada Aplikasi:*
+**4. Drawer pada Aplikasi:**
    - Drawer dibuat menggunakan class `LeftDrawer` di dalam file `left_drawer.dart`.
    - Dalam Drawer, terdapat tiga opsi: "Main Page", "Lihat Item", dan "Tambah Item" menggunakan ListTile.
    - Menavigasikan pengguna ke halaman utama atau halaman form tambah item baru menggunakan `Navigator.push` ketika salah satu opsi dipilih.
 
-*## BONUS ##*
+**## BONUS ##**
 
-*1. Membuat Halaman Daftar Item (`item_list_page.dart`):*
+**1. Membuat Halaman Daftar Item (`item_list_page.dart`):**
 
 *a. Buat Class untuk Item:*
    - Dalam `item_list_page.dart`, kita sudah memiliki class `Item`. Pastikan class ini sudah dengan benar.
@@ -103,7 +103,7 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 *c. Buat Halaman Daftar Item (`ItemsListPage`):*
    - Tambahkan class `ItemsListPage` untuk menampilkan daftar item.
 
-*2. Mengarahkan Pengguna ke Halaman Daftar Item:*
+**2. Mengarahkan Pengguna ke Halaman Daftar Item:**
 
 *a. Tambahkan Fungsi Navigasi di `menu.dart`:*
    - Pada `menu.dart`, pastikan fungsi `navigateToItemsListPage` sudah diimplementasikan dengan benar untuk menavigasikan pengguna ke halaman daftar item (`ItemsListPage`).
@@ -114,17 +114,17 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 *c. Tambahkan Navigasi dari Halaman Utama:*
    - Pada `MyHomePage`, pastikan tombol "Lihat Item" menavigasikan pengguna ke halaman daftar item.
 
-*3. Menampilkan Data pada Halaman Daftar Item:* 
+**3. Menampilkan Data pada Halaman Daftar Item:**
    - Pastikan `ItemsListPage` mengambil data dari `itemRepository.items` dan menampilkannya menggunakan `ListView.builder`, sesuai dengan yang sudah diimplementasikan.
 
 
 ## TUGAS 7
-*Jelaskan apa yang dimaksud dengan `stateless widget` dan `stateful widget` dan jelaskan perbedaan dari keduanya?*
+**Jelaskan apa yang dimaksud dengan `stateless widget` dan `stateful widget` dan jelaskan perbedaan dari keduanya?**
 - `Stateless widget` adalah widget yang hanya bertugas untuk menampilkan sesuatu secara statis. Tanpa melakukan tracking perubahan data dari waktu ke waktu. Intinya, tampilan dari `stateless widget` akan seperti itu-itu saja dan tidak ada mekanisme untuk memantau state perubahan aplikasi.
 - `Stateful Widget` merupakan widget yang dinamis. Ini berarti widget ini dapat merubah tampilannya sesuai response dari events yang dipicu baik dari interaksi user maupun adanya variabel atau nilai baru yang didapat. `Stateful widget` dapat mengubah atau mengupdate tampilan, menambah widget lainnya, mengubah nilai variabel, icon, warna dan masih banyak lagi.
 - Terdapat perbedaan yang signifikan antara `stateless` dan `stateful widget`. Pada `stateless widget`, seluruh konfigurasi yang dimuat di dalamnya diinisiasikan sejak awal dan tidak dapat diubah, sehingga fungsi setState() tidak dapat digunakan dalam `stateless widget`. Oleh karena itu, `stateless widget` cocok kita gunakan ketika kita hanya perlu menampilkan data yang sifatnya statis atau tidak perlu adanya perubahan nilai. `Stateful widget` merupakan suatu widget yang sifatnya dinamis atau dapat berubah-ubah, kebalikan dari `stateless widget`. Oleh karena itu, `stateful widget` cocok kita gunakan ketika kita menampilkan data dari database yang sifatnya akan berubah-ubah atau data apapun yang sifatnya akan berubah dikemudian hari.
 
-*Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya?*
+**Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya?**
 - `MyApp` (main.dart): Ini adalah root widget dari aplikasi Flutter. Ini adalah widget yang pertama kali dijalankan saat aplikasi dimulai. Dalam tugas ini, MyApp dibuat menjadi `StatelessWidget`.
 - `MyHomePage` (menu.dart): Ini adalah widget yang mewakili halaman utama aplikasi. Ini adalah widget stateless yang berisi menu utama dan daftar item yang akan ditampilkan. Widget ini menggunakan Scaffold untuk mengatur tata letak, AppBar, dan GridView untuk menampilkan item menu.
 - `RestaurantItem`: Ini adalah kelas untuk merepresentasikan item-menu. Ini memiliki tiga properti: name (nama item), icon (ikon item), dan color (warna tombol).
