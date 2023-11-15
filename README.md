@@ -5,6 +5,7 @@ Kode Asdos: ZYN**
 
 ## TUGAS 8
 *Jelaskan perbedaan `Navigator.push` dan `Navigator.pushReplacement`*
+
 - `Navigator.push () :` Metode push digunakan untuk menambahkan rute lain ke atas tumpukan screen (stack) saat ini. Halaman baru ditampilkan di atas halaman sebelumnya.
 Contoh penggunaan: Digunakan ketika menambahkan halaman baru ke navigation stack, seperti saat mengarahkan user dari satu layar ke layar lain.
 
@@ -12,6 +13,7 @@ Contoh penggunaan: Digunakan ketika menambahkan halaman baru ke navigation stack
 - Contoh penggunaan: Digunakan ketika menggantikan halaman saat ini dengan halaman baru dan menghapus halaman sebelumnya dari navigation stack, digunakan ketika tidak ingin user dapat kembali ke halaman sebelumnya.
 
 *Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya*
+
 `- Container:` Digunakan untuk mengelompokkan dan mengatur widget lain dengan memberikan batasan atau padding.
 Contoh penggunaan: Mengelilingi widget lain untuk memberikan margin atau layout.
 
@@ -25,6 +27,7 @@ Contoh Penggunaan: Menampilkan daftar item yang dapat di-scroll.
 Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 
 *Elemen Input Form yang Digunakan:*
+
 **1. TextFormField untuk Nama Item (`_name`):**
    - Digunakan untuk memasukkan nama item atau produk.
    - Tipe data yang digunakan yaitu `string`
@@ -46,6 +49,7 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
    - Sekali lagi, TextFormField dipilih karena dapat menangani input teks lebih lanjut dan memberikan area input yang lebih luas untuk deskripsi yang mungkin lebih panjang.
 
 *Penerapan Clean Architecture pada Flutter*
+
 `1. Entities:`
 - Entities adalah representasi dari objek bisnis atau aturan bisnis.
 - Pada Flutter, ini dapat mencakup kelas-kelas Dart yang mewakili model-data inti atau entitas dalam aplikasi.
@@ -63,7 +67,9 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 - Dalam Flutter, Frameworks & Drivers melibatkan kode Flutter dan paket-paket pub.
 
 *Implementasi Step-by-Step:*
+
 *1. Halaman Formulir Tambah Item Baru (`restaurantlist_form.dart`):*
+
 *a. Memakai Minimal Tiga Elemen Input:*
    - Dalam class `_RestaurantFormPageState`, telah dibuat tiga elemen input yaitu `_name`, `_amount`, `_price` dan `_description` menggunakan TextFormField dengan tipe data yang sudah disesuaikan masing-masing.
 
@@ -85,7 +91,9 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
    - Menavigasikan pengguna ke halaman utama atau halaman form tambah item baru menggunakan `Navigator.push` ketika salah satu opsi dipilih.
 
 *## BONUS ##*
+
 *1. Membuat Halaman Daftar Item (`item_list_page.dart`):*
+
 *a. Buat Class untuk Item:*
    - Dalam `item_list_page.dart`, kita sudah memiliki class `Item`. Pastikan class ini sudah dengan benar.
 
@@ -96,6 +104,7 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
    - Tambahkan class `ItemsListPage` untuk menampilkan daftar item.
 
 *2. Mengarahkan Pengguna ke Halaman Daftar Item:*
+
 *a. Tambahkan Fungsi Navigasi di `menu.dart`:*
    - Pada `menu.dart`, pastikan fungsi `navigateToItemsListPage` sudah diimplementasikan dengan benar untuk menavigasikan pengguna ke halaman daftar item (`ItemsListPage`).
 
