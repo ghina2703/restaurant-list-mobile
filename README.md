@@ -138,6 +138,7 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 - Buat widget RestaurantCard yang berisi tampilan item di dalam GridView.
 - Untuk mengimplementasikan warna yang berbeda di tiap tombol, saya menambahkan properti color di dalam class RestaurantItem.
 
+
 # restaurant_list
 
 A new Flutter project.
