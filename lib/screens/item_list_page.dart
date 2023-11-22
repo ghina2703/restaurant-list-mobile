@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_list/screens/item_detail_page.dart';
 
 class Item {
   final String name;
@@ -24,13 +25,19 @@ class ItemRepository {
 final itemRepository = ItemRepository();
 
 class ItemsListPage extends StatelessWidget {
-  const ItemsListPage({super.key});
+  const ItemsListPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('List of Items'),
+        title: const Center(
+          child: Text(
+            'Items Mobile List',
+            style: TextStyle(color: Colors.white), // Warna teks
+          ),
+        ),
+        backgroundColor: Colors.pink, // Warna latar belakang
       ),
       body: ListView.builder(
         itemCount: itemRepository.items.length,
@@ -45,32 +52,14 @@ class ItemsListPage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Amount: ${item.amount}",
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ItemDetailPage(item: item),
                 ),
-                Text(
-                  "Price: ${item.price}",
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
-                ),
-                Text(
-                  "Description: ${item.description}",
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
-            ),
+              );
+            },
           );
         },
       ),

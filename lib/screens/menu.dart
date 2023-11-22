@@ -7,12 +7,21 @@ import 'package:restaurant_list/widgets/left_drawer.dart';
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
-  void navigateToRestaurantFormPage(BuildContext context) {
+  void navigateToShopFormPage(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const RestaurantFormPage(),
+        builder: (context) => RestaurantFormPage(),
       ),
+    );
+  }
+
+  void navigateToProductPage(BuildContext context) {
+    // Route menu ke halaman produk
+    Navigator.push(
+      context,
+      // MaterialPageRoute(builder: (context) => ProductPage()),
+      MaterialPageRoute(builder: (context) => ItemsListPage()),
     );
   }
 
@@ -36,6 +45,8 @@ class MyHomePage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+        backgroundColor: Colors.pink,
+        foregroundColor: Colors.white,
       ),
       drawer: const LeftDrawer(),
       body: SingleChildScrollView(
@@ -65,11 +76,10 @@ class MyHomePage extends StatelessWidget {
                   return RestaurantCard(
                     item,
                     onItemTap: () {
-                      if (item.name == "Tambah Item") {
-                        navigateToRestaurantFormPage(context);
-                      } else if (item.name == "Lihat Item") {
-                        // Navigasi ke halaman List of Items
-                        navigateToItemsListPage(context);
+                      if (item.name == "Lihat Item Mobile") {
+                        navigateToProductPage(context);
+                      } else if (item.name == "Tambah Item") {
+                        navigateToShopFormPage(context);
                       }
                     },
                   );

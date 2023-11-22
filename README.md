@@ -3,6 +3,107 @@ NPM: 2206825914\
 Kelas: PBP-B\
 Kode Asdos: ZYN**
 
+**Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON**
+
+Kita dapat mengambil data JSON tanpa membuat model terlebih dahulu. Data tersebut dapat dikirimkan dengan bentuk HTTP response. Namun, cara tersebut kurang efisien karena data akan sulit dilihat dan diakses, sehingga sebaiknya pengambilan data JSON dilakukan dengan membuat model saja.
+
+**Jelaskan fungsi dari `CookieRequest` dan jelaskan mengapa instance `CookieRequest` perlu untuk dibagikan ke semua komponen di aplikasi Flutter**
+
+`CookieRequest` adalah kelas yang digunakan untuk mengelola permintaan HTTP yang terkait dengan otentikasi dan sesi. Dengan menggunakan package `pbp_django_auth`, `CookieRequest` memberikan fungsionalitas otentikasi berbasis cookie untuk aplikasi Flutter yang berkomunikasi dengan backend Django.
+
+1. **Login dan Logout**: `CookieRequest` memiliki metode `login` dan `logout` yang digunakan untuk mengirim permintaan otentikasi ke backend Django. Metode ini mengelola permintaan HTTP dan penanganan respon, termasuk penyimpanan cookie otentikasi.
+
+2. **Status Otentikasi**: `CookieRequest` menyimpan status otentikasi melalui atribut `loggedIn`. Saat pengguna berhasil login, nilai atribut ini diatur menjadi `true`. Ini membantu dalam menentukan apakah pengguna saat ini sudah login atau belum.
+
+3. **Shared Instance untuk State Management**: `CookieRequest` diintegrasikan dengan `Provider` untuk state management. Dengan menggunakan `Provider`, instance `CookieRequest` dapat dibagikan ke seluruh komponen di aplikasi Flutter. Ini memungkinkan komponen yang berbeda, seperti widget halaman login, halaman registrasi, dan drawer, untuk memiliki akses ke status otentikasi yang sama dan menyinkronkan tampilan mereka berdasarkan status tersebut.
+
+
+**Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.**
+
+Pertama, menambahkan terlebih dahulu dependancy `http`. Kemudian, membuat model dari data yang akan di GET. Selanjutnya, membuat `HTTP Request` untuk GET. Setelah itu, response di-decode menjadi JSON kemudian dikonversi menjadi model yang dibuat sebelumnya. Terakhir, membuat widget/component menggunakan data yang di GET dengan memanfaatkan `FutureBuilder`.
+
+
+**Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter**
+
+1. **Input Data Akun di Flutter**: Pengguna memasukkan informasi akun seperti username dan password pada user-interface Flutter.
+
+2. **Pengiriman Permintaan Login ke Django**: Ketika pengguna menekan tombol login, permintaan login dikirim ke backend Django melalui `CookieRequest`. Informasi akun dikirim dalam bentuk permintaan HTTP.
+
+3. **Autentikasi oleh Django**: Backend Django menerima permintaan login, memeriksa credential, dan menghasilkan sesi atau token otentikasi jika credential valid.
+
+4. **Penanganan Respon di Flutter**: `CookieRequest` di Flutter menangkap respon dari backend Django. Jika autentikasi berhasil, nilai `loggedIn` diatur menjadi `true`. Ini akan membuat perubahan pada tampilan komponen yang bergantung pada status otentikasi, seperti perubahan menu.
+
+5. **Tampilan Menu pada Flutter**: Widget atau halaman tertentu, seperti halaman menu, berlangganan ke `CookieRequest` menggunakan `Provider`. Saat status otentikasi berubah, widget ini akan memperbarui tampilannya secara otomatis, mungkin dengan menampilkan atau menyembunyikan opsi menu tertentu berdasarkan apakah pengguna sudah login atau belum.
+
+
+**Sebutkan seluruh widget yang dipakai pada tugas ini dan jelaskan fungsinya masing-masing.**
+
+1. **Scaffold:** Menyediakan kerangka struktural untuk aplikasi, termasuk appBar, body, dan drawer.
+
+2. **AppBar:** Menyediakan baris atas aplikasi yang biasanya berisi judul dan ikon aplikasi.
+
+3. **Drawer:** Menyediakan menu geser yang dapat diakses pengguna dengan menggeser dari kiri. Digunakan untuk menampilkan menu navigasi.
+
+4. **ListView.builder:** Menampilkan daftar item menggunakan builder pattern, membangun item sesuai kebutuhan dan mengoptimalkan kinerja.
+
+5. **TextFormField:** Menampilkan input teks yang dapat diedit, digunakan untuk mengambil input dari pengguna (username, password, dll.).
+
+6. **ElevatedButton:** Tombol dengan efek naik yang digunakan untuk men-trigger aksi seperti login atau navigasi ke halaman lain.
+
+7. **Column:** Menyusun widget-vertical (dalam kolom) sehingga widget-widget berada satu di bawah yang lain.
+
+8. **TextField:** Menampilkan input teks yang dapat diedit, digunakan untuk mengambil input dari pengguna (username, password, dll.).
+
+9. **SnackBar:** Menampilkan pesan singkat yang muncul di bagian bawah layar untuk memberikan feedback atau informasi singkat.
+
+10. **AlertDialog:** Menampilkan dialog yang mengandung pesan atau tindakan tertentu yang memerlukan respons pengguna.
+
+11. **Container:** Membungkus widget lain, memberikan padding atau margin, dan membantu dalam penataan tata letak.
+
+12. **Material:** Mengimplementasikan desain material untuk aplikasi, termasuk pengaturan warna dan border radius.
+
+13. **InkWell:** Memberikan efek "muncul" saat widget ditekan, sering digunakan pada widget yang dapat di-tap.
+
+14. **PageRouteBuilder:** Membangun route dengan pengaturan khusus, digunakan untuk mengatur transisi antar halaman.
+
+15. **Padding:** Menambahkan padding ke dalam widget.
+
+16. **FutureBuilder:** Membangun widget berdasarkan hasil dari Future, umumnya digunakan untuk menampilkan data yang diambil dari sumber eksternal.
+
+17. **Align:** Menempatkan widget child ke dalam posisi yang ditentukan.
+
+18. **SizedBox:** Menambahkan ruang kosong dengan ukuran tertentu, digunakan untuk memberikan jarak antara widget.
+
+19. **PageRoute:** Merupakan interface untuk membangun route perpindahan halaman pada aplikasi.
+
+
+**Implementasi Step-by-Step:**
+
+1. *Deploy Django Project:*
+   - Pastikan proyek Django telah di-deploy dan dapat diakses melalui URL yang sesuai.
+
+2. *Buat Halaman Login:*
+   - Implementasikan halaman login di Flutter menggunakan widget `TextField`, `ElevatedButton`, dan `Text` untuk mengambil input username dan password dari pengguna.
+
+3. *Integrasikan dengan Django Auth:*
+   - Gunakan paket `pbp_django_auth` untuk mengintegrasikan sistem autentikasi Flutter dengan Django. Sesuaikan permintaan login dengan endpoint yang telah kita deploy di Django.
+
+4. *Buat Model Kustom:*
+   - Di proyek Django, buat model kustom yang mewakili item atau produk yang ingin ditampilkan di Flutter. Pastikan model ini sudah di-migrate.
+
+5. *Tampilkan Daftar Item:*
+   - Buat halaman di Flutter untuk menampilkan daftar semua item yang diperoleh dari endpoint JSON di Django. Gunakan `ListView.builder` untuk menampilkan setiap item dengan informasi yang diinginkan (name, amount, dan description).
+
+6. *Buat Halaman Detail Item:*
+   - Implementasikan halaman detail di Flutter untuk menampilkan seluruh atribut pada model item ketika salah satu item pada halaman daftar item ditekan.
+
+7. *Navigasi ke Halaman Detail:*
+   - Implementasikan navigasi agar pengguna dapat beralih dari halaman daftar item ke halaman detail item ketika salah satu item ditekan. Gunakan `Navigator.push` untuk melakukan navigasi.
+
+8. *Tambahkan Tombol Kembali:*
+   - Di halaman detail item, tambahkan tombol untuk kembali ke halaman daftar item. Gunakan `Navigator.pop` untuk kembali ke halaman sebelumnya.
+
+
 ## TUGAS 8
 **Jelaskan perbedaan `Navigator.push` dan `Navigator.pushReplacement`:**
 

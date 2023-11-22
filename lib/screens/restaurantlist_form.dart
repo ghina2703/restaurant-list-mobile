@@ -1,5 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant_list/screens/item_list_page.dart';
+import 'package:restaurant_list/screens/menu.dart';
 import 'package:restaurant_list/widgets/left_drawer.dart';
 
 class RestaurantFormPage extends StatefulWidget {
@@ -18,15 +23,16 @@ class _RestaurantFormPageState extends State<RestaurantFormPage> {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Scaffold(
       appBar: AppBar(
         title: const Center(
           child: Text(
-            'Form Tambah Item',
+            'Form Tambah Item Mobile',
+            style: TextStyle(color: Colors.white), // Warna teks
           ),
         ),
-        // backgroundColor: Colors.indigo,
-        // foregroundColor: Colors.white,
+        backgroundColor: Colors.pink, // Warna latar belakang
       ),
       drawer: const LeftDrawer(), // Tambahkan drawer yang sudah dibuat di sini
       body: Form(

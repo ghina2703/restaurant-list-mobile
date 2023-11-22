@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_list/screens/list_product.dart';
 import 'package:restaurant_list/screens/menu.dart';
 import 'package:restaurant_list/screens/restaurantlist_form.dart'; // Impor RestaurantFormPage
 import 'package:restaurant_list/screens/item_list_page.dart';
@@ -52,16 +53,24 @@ class LeftDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons
-                .list), // Menggunakan ikon yang sesuai, misalnya Icons.list
-            title: const Text('Lihat Item'),
+            leading: const Icon(Icons.shopping_basket),
+            title: const Text('Daftar Item Web'),
             onTap: () {
+              // Route menu ke halaman produk
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      const ItemsListPage(), // Gantilah ItemsListPage dengan halaman yang sesuai
-                ),
+                MaterialPageRoute(builder: (context) => const ProductPage()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.shopping_basket),
+            title: const Text('Daftar Item Mobile'),
+            onTap: () {
+              // Route menu ke halaman produk
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ItemsListPage()),
               );
             },
           ),
