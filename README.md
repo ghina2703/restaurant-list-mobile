@@ -3,11 +3,14 @@ NPM: 2206825914\
 Kelas: PBP-B\
 Kode Asdos: ZYN**
 
-**Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON**
+## TUGAS 9
+
+**=== Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON? ===**
 
 Kita dapat mengambil data JSON tanpa membuat model terlebih dahulu. Data tersebut dapat dikirimkan dengan bentuk HTTP response. Namun, cara tersebut kurang efisien karena data akan sulit dilihat dan diakses, sehingga sebaiknya pengambilan data JSON dilakukan dengan membuat model saja.
 
-**Jelaskan fungsi dari `CookieRequest` dan jelaskan mengapa instance `CookieRequest` perlu untuk dibagikan ke semua komponen di aplikasi Flutter**
+
+****=== Jelaskan fungsi dari `CookieRequest` dan jelaskan mengapa instance `CookieRequest` perlu untuk dibagikan ke semua komponen di aplikasi Flutter ===**
 
 `CookieRequest` adalah kelas yang digunakan untuk mengelola permintaan HTTP yang terkait dengan otentikasi dan sesi. Dengan menggunakan package `pbp_django_auth`, `CookieRequest` memberikan fungsionalitas otentikasi berbasis cookie untuk aplikasi Flutter yang berkomunikasi dengan backend Django.
 
@@ -18,12 +21,12 @@ Kita dapat mengambil data JSON tanpa membuat model terlebih dahulu. Data tersebu
 3. **Shared Instance untuk State Management**: `CookieRequest` diintegrasikan dengan `Provider` untuk state management. Dengan menggunakan `Provider`, instance `CookieRequest` dapat dibagikan ke seluruh komponen di aplikasi Flutter. Ini memungkinkan komponen yang berbeda, seperti widget halaman login, halaman registrasi, dan drawer, untuk memiliki akses ke status otentikasi yang sama dan menyinkronkan tampilan mereka berdasarkan status tersebut.
 
 
-**Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.**
+**=== Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter ===**
 
 Pertama, menambahkan terlebih dahulu dependancy `http`. Kemudian, membuat model dari data yang akan di GET. Selanjutnya, membuat `HTTP Request` untuk GET. Setelah itu, response di-decode menjadi JSON kemudian dikonversi menjadi model yang dibuat sebelumnya. Terakhir, membuat widget/component menggunakan data yang di GET dengan memanfaatkan `FutureBuilder`.
 
 
-**Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter**
+**=== Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter ===**
 
 1. **Input Data Akun di Flutter**: Pengguna memasukkan informasi akun seperti username dan password pada user-interface Flutter.
 
@@ -36,7 +39,7 @@ Pertama, menambahkan terlebih dahulu dependancy `http`. Kemudian, membuat model 
 5. **Tampilan Menu pada Flutter**: Widget atau halaman tertentu, seperti halaman menu, berlangganan ke `CookieRequest` menggunakan `Provider`. Saat status otentikasi berubah, widget ini akan memperbarui tampilannya secara otomatis, mungkin dengan menampilkan atau menyembunyikan opsi menu tertentu berdasarkan apakah pengguna sudah login atau belum.
 
 
-**Sebutkan seluruh widget yang dipakai pada tugas ini dan jelaskan fungsinya masing-masing.**
+**=== Sebutkan seluruh widget yang dipakai pada tugas ini dan jelaskan fungsinya masing-masing ===**
 
 1. **Scaffold:** Menyediakan kerangka struktural untuk aplikasi, termasuk appBar, body, dan drawer.
 
@@ -77,7 +80,7 @@ Pertama, menambahkan terlebih dahulu dependancy `http`. Kemudian, membuat model 
 19. **PageRoute:** Merupakan interface untuk membangun route perpindahan halaman pada aplikasi.
 
 
-**Implementasi Step-by-Step:**
+**=== Implementasi Step-by-Step: ===**
 
 1. *Deploy Django Project:*
    - Pastikan proyek Django telah di-deploy dan dapat diakses melalui URL yang sesuai.
@@ -105,7 +108,8 @@ Pertama, menambahkan terlebih dahulu dependancy `http`. Kemudian, membuat model 
 
 
 ## TUGAS 8
-**Jelaskan perbedaan `Navigator.push` dan `Navigator.pushReplacement`:**
+
+**=== Jelaskan perbedaan `Navigator.push` dan `Navigator.pushReplacement`: ===**
 
 `- Navigator.push () :` Metode push digunakan untuk menambahkan rute lain ke atas tumpukan screen (stack) saat ini. Halaman baru ditampilkan di atas halaman sebelumnya.\
 Contoh penggunaan: Digunakan ketika menambahkan halaman baru ke navigation stack, seperti saat mengarahkan user dari satu layar ke layar lain.
@@ -113,7 +117,7 @@ Contoh penggunaan: Digunakan ketika menambahkan halaman baru ke navigation stack
 `- Navigator.pushReplacement() :` Metode pushReplacement digunakan untuk menimpa/mengganti rute yang sekarang ke rute lain. Halaman baru ditampilkan dengan menggantikan halaman sebelumnya.\
 Contoh penggunaan: Digunakan ketika menggantikan halaman saat ini dengan halaman baru dan menghapus halaman sebelumnya dari navigation stack, digunakan ketika tidak ingin user dapat kembali ke halaman sebelumnya.
 
-**Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya:**
+**=== Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya: ===**
 
 `- Container:` Digunakan untuk mengelompokkan dan mengatur widget lain dengan memberikan batasan atau padding.\
 Contoh penggunaan: Mengelilingi widget lain untuk memberikan margin atau layout.
@@ -127,7 +131,7 @@ Contoh Penggunaan: Menampilkan daftar item yang dapat di-scroll.
 `- Stack:` Digunakan untuk menempatkan widget di atas satu sama lain.\
 Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 
-**Elemen Input Form yang Digunakan:**
+**=== Elemen Input Form yang Digunakan: ===**
 
 **1. TextFormField untuk Nama Item (`_name`):**
    - Digunakan untuk memasukkan nama item atau produk.
@@ -149,7 +153,7 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
    - Tipe data yang digunakan yaitu `string`
    - Sekali lagi, TextFormField dipilih karena dapat menangani input teks lebih lanjut dan memberikan area input yang lebih luas untuk deskripsi yang mungkin lebih panjang.
 
-**Penerapan Clean Architecture pada Flutter:**
+**=== Penerapan Clean Architecture pada Flutter: ===**
 
 `1. Entities:`
 - Entities adalah representasi dari objek bisnis atau aturan bisnis.
@@ -167,7 +171,7 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 - Lapisan ini berisi implementasi teknis dan third party software, seperti GUI, database, atau API eksternal.
 - Dalam Flutter, Frameworks & Drivers melibatkan kode Flutter dan paket-paket pub.
 
-**Implementasi Step-by-Step:**
+**=== Implementasi Step-by-Step: ===**
 
 **1. Halaman Formulir Tambah Item Baru (`restaurantlist_form.dart`):**
 
@@ -191,7 +195,7 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
    - Dalam Drawer, terdapat tiga opsi: "Main Page", "Lihat Item", dan "Tambah Item" menggunakan ListTile.
    - Menavigasikan pengguna ke halaman utama atau halaman form tambah item baru menggunakan `Navigator.push` ketika salah satu opsi dipilih.
 
-**## BONUS ##**
+**## BONUS Tugas 8##**
 
 **1. Membuat Halaman Daftar Item (`item_list_page.dart`):**
 
@@ -220,12 +224,13 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 
 
 ## TUGAS 7
-**Jelaskan apa yang dimaksud dengan `stateless widget` dan `stateful widget` dan jelaskan perbedaan dari keduanya?**
+
+**=== Jelaskan apa yang dimaksud dengan `stateless widget` dan `stateful widget` dan jelaskan perbedaan dari keduanya? ===**
 - `Stateless widget` adalah widget yang hanya bertugas untuk menampilkan sesuatu secara statis. Tanpa melakukan tracking perubahan data dari waktu ke waktu. Intinya, tampilan dari `stateless widget` akan seperti itu-itu saja dan tidak ada mekanisme untuk memantau state perubahan aplikasi.
 - `Stateful Widget` merupakan widget yang dinamis. Ini berarti widget ini dapat merubah tampilannya sesuai response dari events yang dipicu baik dari interaksi user maupun adanya variabel atau nilai baru yang didapat. `Stateful widget` dapat mengubah atau mengupdate tampilan, menambah widget lainnya, mengubah nilai variabel, icon, warna dan masih banyak lagi.
 - Terdapat perbedaan yang signifikan antara `stateless` dan `stateful widget`. Pada `stateless widget`, seluruh konfigurasi yang dimuat di dalamnya diinisiasikan sejak awal dan tidak dapat diubah, sehingga fungsi setState() tidak dapat digunakan dalam `stateless widget`. Oleh karena itu, `stateless widget` cocok kita gunakan ketika kita hanya perlu menampilkan data yang sifatnya statis atau tidak perlu adanya perubahan nilai. `Stateful widget` merupakan suatu widget yang sifatnya dinamis atau dapat berubah-ubah, kebalikan dari `stateless widget`. Oleh karena itu, `stateful widget` cocok kita gunakan ketika kita menampilkan data dari database yang sifatnya akan berubah-ubah atau data apapun yang sifatnya akan berubah dikemudian hari.
 
-**Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya?**
+**=== Sebutkan widget apa saja yang kamu pakai di proyek kali ini dan jelaskan fungsinya? ===**
 - `MyApp` (main.dart): Ini adalah root widget dari aplikasi Flutter. Ini adalah widget yang pertama kali dijalankan saat aplikasi dimulai. Dalam tugas ini, MyApp dibuat menjadi `StatelessWidget`.
 - `MyHomePage` (menu.dart): Ini adalah widget yang mewakili halaman utama aplikasi. Ini adalah widget stateless yang berisi menu utama dan daftar item yang akan ditampilkan. Widget ini menggunakan Scaffold untuk mengatur tata letak, AppBar, dan GridView untuk menampilkan item menu.
 - `RestaurantItem`: Ini adalah kelas untuk merepresentasikan item-menu. Ini memiliki tiga properti: name (nama item), icon (ikon item), dan color (warna tombol).
@@ -234,7 +239,7 @@ Contoh Penggunaan: Menumpuk widget untuk efek overlapping.
 - `SingleChildScrollView`: Ini adalah widget yang digunakan agar kita bisa scroll jika kontennya lebih panjang dari layar.
 - `GridView.count`: Digunakan untuk membuat grid layout dengan jumlah kolom yang ditentukan (dalam tugas ini, 3 kolom). 
 
-**Implementasi Step-by-Step + BONUS:**
+**=== Implementasi Step-by-Step + BONUS Tugas 7: ===**
 1. Membuat proyek baru dengan cara menjalankan "flutter create restaurant_list" di `cmd`.
 2. Mengubah judul hompage menjadi "Restaurant List" di `main.dart` pada direktori `restaurant_list/lib`.
 3. Buat file baru dengan nama `menu.dart` pada direktori `restaurant_list/lib`, kemudian tambahkan `import 'package:flutter/material.dart';`.
